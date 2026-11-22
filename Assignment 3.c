@@ -1,45 +1,50 @@
+//Write a menu driven program in C to perform all basic arithmetic operations.
+
 #include 
 <stdio.h>
 
-int main() 
+int main()
 {
-    double num1, num2;
-    char op;
+    int a, b, choice;
 
     printf("Enter two numbers: ");
-    if (scanf("%lf %lf", &num1, &num2) != 2)
-    {
-        printf("Error: Invalid number input.\n");
-        return 1;
-    }
+    scanf("%d %d", &a, &b);
 
-    printf("Enter an operator (+, -, *, /): ");
-    if (scanf(" %c", &op) != 1) {
-        printf("Error: Failed to read operator.\n");
-        return 1;
-    }
+    printf("\n--- Arithmetic Menu ---\n");
+    printf("1. Addition\n");
+    printf("2. Subtraction\n");
+    printf("3. Multiplication\n");
+    printf("4. Division\n");
 
-    switch (op) 
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch(choice)
     {
-        case '+':
-            printf("%.2lf + %.2lf = %.2lf\n", num1, num2, num1 + num2);
+        case 1:
+            printf("Addition = %d", a + b);
             break;
-        case '-':
-            printf("%.2lf - %.2lf = %.2lf\n", num1, num2, num1 - num2);
+
+        case 2:
+            printf("Subtraction = %d", a - b);
             break;
-        case '*':
-            printf("%.2lf * %.2lf = %.2lf\n", num1, num2, num1 * num2);
+
+        case 3:
+            printf("Multiplication = %d", a * b);
             break;
-        case '/':
-            if (num2 != 0.0) {
-                printf("%.2lf / %.2lf = %.2lf\n", num1, num2, num1 / num2);
-            } else {
-                printf("Error: Division by zero is not allowed.\n");
-            }
+
+        case 4:
+            if(b != 0)
+                printf("Division = %.2f", (float)a / b);
+            else
+                printf("Division by zero is not possible.");
             break;
+
         default:
-            printf("Error: Invalid operator.\n");
+            printf("Invalid choice!");
     }
 
     return 0;
 }
+
+    
